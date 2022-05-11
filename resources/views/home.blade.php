@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12 mb-5">
-            <img src="{{url ('images/logo02.png')}}" class="rounded mx-auto d-block" width="700" alt="">
+            <img src="{{url ('images/logo.png')}}" class="rounded mx-auto d-block" width="300" alt="">
         </div>
     @foreach($barangs as $barang)
         <div class="col-md-3">

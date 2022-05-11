@@ -6,7 +6,7 @@
 
         <title>Laravel</title>
 
-        <!-- Fonts -->
+        <!-- Font -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
@@ -73,7 +73,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    <img src="{{url ('images/logo02.png')}}" class="rounded mx-auto d-block" width="2500" alt="">
+                    <img src="{{url ('images/logo.png')}}" class="rounded mx-auto d-block" width="500" alt="">
                 </div>
 
                

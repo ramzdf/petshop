@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{url('images/logo01.png')}}" width="300" alt="">
+                    <img src="{{url('images/logoatas1.png')}}" width="400" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,6 +55,7 @@
                                 </li>
                             @endif
                         @else
+                        
                         <li class="nav-item">
                             <?php
                              $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
@@ -63,6 +64,8 @@
                                  $notif = \App\Models\PesananDetails::where('pesanan_id', $pesanan_utama->id)->count(); 
                                 }
                             ?>
+                            <a></a>
+
                             <a class="nav-link" href="{{ url('check-out') }}">
                                 <i class="fa fa-shopping-cart"></i>
                                 @if(!empty($notif))
@@ -83,11 +86,14 @@
                                 </a>
                             </li> 
 
+
                             <li>
                                 <a class="nav-link"  href="{{ url('history') }}">
                                     History
                                 </a>
                             </li> 
+
+
 
                             <li>
                                 <a class="nav-link"  href="{{ route('logout') }}"
@@ -96,6 +102,7 @@
                                     {{ __('Logout') }}
                                 </a>  
                             </li>
+
 
                             
 
