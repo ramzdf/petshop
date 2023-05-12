@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Pesanan;
 use App\Models\PesananDetails;
+<<<<<<< HEAD
+=======
+use App\Models\User;
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
@@ -46,6 +50,10 @@ class PesanController extends Controller
 	    	$pesanan->tanggal = $tanggal;
 	    	$pesanan->status = 0;
 	    	$pesanan->jumlah_harga = 0;
+<<<<<<< HEAD
+=======
+			$pesanan->kode = mt_rand(100,999);
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 	    	$pesanan->save();
 		}
 		//jumlah total
@@ -79,8 +87,13 @@ class PesanController extends Controller
     	}
 		
 
+<<<<<<< HEAD
 		return redirect('home')->with(['success' => 'Pesan Berhasil']);
 
+=======
+		Alert::success('Pesanan Sukses Masuk Keranjang', 'Success');
+    	return redirect('check-out');
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 
 	}
 	public function check_out()
@@ -95,6 +108,61 @@ class PesanController extends Controller
         
         return view('pesan.check_out', compact('pesanan', 'pesanan_details'));
     }
+<<<<<<< HEAD
 	
     
+=======
+
+	public function delete($id)
+    {
+        $pesanan_detail = PesananDetails::where('id', $id)->first();
+
+        $pesanan = Pesanan::where('id', $pesanan_detail->pesanan_id)->first();
+        $pesanan->jumlah_harga = $pesanan->jumlah_harga-$pesanan_detail->jumlah_harga;
+        $pesanan->update();
+
+
+        $pesanan_detail->delete();
+
+        Alert::error('Pesanan Sukses Dihapus', 'Hapus');
+        return redirect('check-out');
+    }
+    
+	public function konfirmasi()
+    {
+        $user = User::where('id', Auth::user()->id)->first();
+
+        if(empty($user->alamat))
+        {
+            Alert::error('Identitasi Harap dilengkapi', 'Error');
+            return redirect('profile');
+        }
+
+        if(empty($user->nohp))
+        {
+            Alert::error('Identitasi Harap dilengkapi', 'Error');
+            return redirect('profile');
+        }
+
+        $pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+        $pesanan_id = $pesanan->id;
+        $pesanan->status = 1;
+        $pesanan->update();
+
+        $pesanan_details = PesananDetails::where('pesanan_id', $pesanan_id)->get();
+        foreach ($pesanan_details as $pesanan_detail) {
+            $barang = Barang::where('id', $pesanan_detail->barang_id)->first();
+            $barang->stok = $barang->stok-$pesanan_detail->jumlah;
+            $barang->update();
+        }
+
+		Alert::success('Pesanan Sukses Check Out Silahkan Lanjutkan Proses Pembayaran', 'Success');
+        return redirect('check-out');
+
+		
+	}
+
+	
+	
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 }

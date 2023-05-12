@@ -18,6 +18,10 @@ class CreatePesanansTable extends Migration
             $table->integer('user_id');
             $table->date('tanggal');
             $table->string('status');
+<<<<<<< HEAD
+=======
+            $table->integer('kode');
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
             $table->integer('jumlah_harga');
             $table->timestamps();
         });

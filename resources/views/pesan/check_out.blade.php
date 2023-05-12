@@ -35,9 +35,37 @@
                             @foreach($pesanan_details as $pesanan_detail)
                             <tr>
                                 <td>{{ $no++ }}</td>
+<<<<<<< HEAD
 
                             </tr>
                             @endforeach
+=======
+                                <td>
+                                    <img src="{{ url('uploads') }}/{{ $pesanan_detail->barang->gambar }}" width="100" alt="...">
+                                </td>
+                                <td>{{ $pesanan_detail->barang->nama_barang }}</td>
+                                <td>{{ $pesanan_detail->jumlah }}</td>
+                                <td align="left">Rp.{{ $pesanan_detail->barang->harga }}</td>
+                                <td align="left">Rp.{{ $pesanan_detail->jumlah_harga }}</td>
+                                <td>
+                                    <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">
+                                        @csrf
+                                        {{ method_field('DELETE') }}
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin akan menghapus data ?');"><i class="fa fa-trash"></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                            <tr>
+                                <td colspan="4" align="right"><strong>Total Harga :</strong></td>
+                                <td><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
+                                <td>
+                                    <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success" onclick="return confirm('Anda yakin akan Check Out ?');">
+                                        <i class="fa fa-shopping-cart"></i> Check Out
+                                    </a>
+                                </td>
+                            </tr>
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
                         </tbody>
                     </table>
                     @endif
