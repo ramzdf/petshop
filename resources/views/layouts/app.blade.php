@@ -25,7 +25,11 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
+<<<<<<< HEAD
+                    <img src="{{url('images/logo01.png')}}" width="300" alt="">
+=======
                     <img src="{{url('images/logoatas1.png')}}" width="400" alt="">
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,7 +59,10 @@
                                 </li>
                             @endif
                         @else
+<<<<<<< HEAD
+=======
                         
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
                         <li class="nav-item">
                             <?php
                              $pesanan_utama = \App\Models\Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
@@ -64,12 +71,33 @@
                                  $notif = \App\Models\PesananDetails::where('pesanan_id', $pesanan_utama->id)->count(); 
                                 }
                             ?>
+<<<<<<< HEAD
+=======
                             <a></a>
 
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
                             <a class="nav-link" href="{{ url('check-out') }}">
                                 <i class="fa fa-shopping-cart"></i>
                                 @if(!empty($notif))
                                 <span class="badge badge-danger">{{ $notif }}</span>
+<<<<<<< HEAD
+                                @endif
+                            </a>
+                        </li>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+=======
                                 @endif 
                             </a>
                         </li>
@@ -110,6 +138,7 @@
                             
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
                                         @csrf
                                     </form>
                                 </div>
