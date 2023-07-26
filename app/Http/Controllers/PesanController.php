@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Pesanan;
 use App\Models\PesananDetails;
+<<<<<<< HEAD
+=======
 use App\Models\User;
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 use Carbon\Carbon;
 use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
@@ -47,7 +50,10 @@ class PesanController extends Controller
 	    	$pesanan->tanggal = $tanggal;
 	    	$pesanan->status = 0;
 	    	$pesanan->jumlah_harga = 0;
+<<<<<<< HEAD
+=======
 			$pesanan->kode = mt_rand(100,999);
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 	    	$pesanan->save();
 		}
 		//jumlah total
@@ -81,8 +87,13 @@ class PesanController extends Controller
     	}
 		
 
+<<<<<<< HEAD
+		return redirect('home')->with(['success' => 'Pesan Berhasil']);
+
+=======
 		Alert::success('Pesanan Sukses Masuk Keranjang', 'Success');
     	return redirect('check-out');
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 
 	}
 	public function check_out()
@@ -97,6 +108,10 @@ class PesanController extends Controller
         
         return view('pesan.check_out', compact('pesanan', 'pesanan_details'));
     }
+<<<<<<< HEAD
+	
+    
+=======
 
 	public function delete($id)
     {
@@ -149,4 +164,5 @@ class PesanController extends Controller
 
 	
 	
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
 }

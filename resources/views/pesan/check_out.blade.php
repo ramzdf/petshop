@@ -35,6 +35,11 @@
                             @foreach($pesanan_details as $pesanan_detail)
                             <tr>
                                 <td>{{ $no++ }}</td>
+<<<<<<< HEAD
+
+                            </tr>
+                            @endforeach
+=======
                                 <td>
                                     <img src="{{ url('uploads') }}/{{ $pesanan_detail->barang->gambar }}" width="100" alt="...">
                                 </td>
@@ -60,6 +65,7 @@
                                     </a>
                                 </td>
                             </tr>
+>>>>>>> 4ce0b05afcf35b8e19b2398bcda9d6ba15252bc2
                         </tbody>
                     </table>
                     @endif
